@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ninja Gold</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
 </head>
 <body>
-    <h1>help</h1>
+    <div id="one">
+        <h2>Your Gold:</h2>
+        <h3>{{gold}}</h3>
+    </div>
+    <div id ="two">
+        <div>
+            <h2>Farm</h2>
+            <p>(earns 10-20 golds)</p>
+            <a href="/process_money/farm" class="btn btn-primary active">Find Gold!</a>
+        </div>
+        <div>
+            <h2>Cave</h2>
+            <p>(earns 5-10 golds)</p>
+            <a href="/process_money/cave" class="btn btn-primary active">Find Gold!</a>
+        </div>
+        <div>
+            <h2>House</h2>
+            <p>(earns 2-5 golds)</p>
+            <a href="/process_money/house" class="btn btn-primary active">Find Gold!</a>
+        </div>
+        <div>
+            <h2>Casino</h2>
+            <p>(earns/takes 0-50 golds)</p>
+            <a href="/process_money/casino" class="btn btn-primary active">Find Gold!</a>
+        </div>
+    </div>
+    <a href="/reset" id = "reset" class="btn btn-secondary active">R E S E T</a>
+    <div id = "three">
+        <h3>Activities:</h3>
+        <div id="list">
+            {% for str in activity %}
+                <p>{{str}}</p>
+            {% empty %}
+                <p>Find some gold!</p>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
